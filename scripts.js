@@ -25,9 +25,23 @@ console.log(newElem);
 //window.location = 'http://www.kodilla.pl';
 
 */
-
 var getButtons = document.getElementsByClassName('button');
 var numberOfButtons = getButtons.length;
-for (var i = 1; i <= numberOfButtons; i++) {
-	alert(getButtons[i].innerText);
+/*function checker() {
+	for (var i = 1; i <= numberOfButtons; i++) {
+		alert(getButtons[i-1].innerText);
+	}
 }
+*/
+var i = 1;
+function timedChecker () {
+	setTimeout(function(){
+		alert(getButtons[i-1].innerText);
+		i++;
+		if (i <= numberOfButtons ) {
+		 	timedChecker();
+		 }
+	}, 2000)
+}
+
+timedChecker();
